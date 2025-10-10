@@ -6,7 +6,7 @@ class Keylogger:
     
     
     
-    
+    # A basic comparsion between user input and stored data
     
     
     
