@@ -1,5 +1,8 @@
 # run code here
 import key_storage
+import hasher
+
+
 class Keylogger:
 
     
@@ -15,9 +18,10 @@ class Keylogger:
     def log(self): # Function that requests for user name and password
              
         
+        
         while True:
             user_name = input("Please enter your username: ")
-        
+            print(key_storage.dict_hash()) # run time issued hash for testing purposes
             if user_name in key_storage.storage: # If statement comparing user input to the dictonary
                 print("Password: " + key_storage.storage[user_name])
                 break
@@ -31,6 +35,12 @@ class Keylogger:
                 elif __password_export == "n":    # Promptly ends the loop
                     print("Goodbye!")
                     break
+
+
+    def verification(self):
+        print(hasher.verify_hash(password, stored_hash))
+
+
 
 keylogger = Keylogger() # keylogger is the blueprint, Keylogger() is the creation
 keylogger.log() # Where the function is called so it can be ran
