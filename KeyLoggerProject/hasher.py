@@ -1,6 +1,6 @@
 
-import hashlib, binascii, os
-
+import hashlib, binascii, os, cryptography
+from cryptography.fernet import Fernet
 
 
 def strong_hash(password: str, iterations: int = 100_000) -> str: # designed to hash a dictionary 100,000 times
@@ -13,4 +13,15 @@ def strong_hash(password: str, iterations: int = 100_000) -> str: # designed to 
 def verify_hash(password: str, stored_hash: str,) -> bool:
     return strong_hash(password) == stored_hash
 
+key = Fernet.generate_key() # variable key for the encrytpion and decryption functions
+    
+fernet = Fernet(key)
 
+def encryption(password: str): # encoder function
+    
+    encMessage = fernet.encrypt(password.encode())
+    return encMessage
+
+def decryption(encMessage: str): # decoder function
+    decMessage = fernet.decrypt(encMessage).decode()
+    return decMessage
