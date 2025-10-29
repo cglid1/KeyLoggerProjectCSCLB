@@ -10,3 +10,6 @@
 5.) Need to try having a set key for encryption to compare user input to dictionary (two different keys are used between compile and run time). 
 
 6.) Next I will try to first hash all password entries then encrypt them for max security
+
+7.) Hashing the dictionary set passwords vs hashing the user entered password end up with different results likely due to 
+a key being generated two different time to hash those passwords
