@@ -12,6 +12,13 @@ storage = {
 }
 
 
+storage_encryption = {
+    hasher.encryption("password"): "John",
+    hasher.encryption("password1"): "Mary",
+    hasher.encryption("Password"): "Katy"
+}
+
+
 storage_hash = {
     "John": hasher.strong_hash("password"),
     "Mary": hasher.strong_hash("password1"),

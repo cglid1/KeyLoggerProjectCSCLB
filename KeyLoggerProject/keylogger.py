@@ -64,6 +64,21 @@ class Keylogger:
                     print("Goodbye!")
                     break
 
+    def inf_password(self): # designed to make brute force entries quicker
+        while True:
+            password = input("Please enter password: ")
+            encrypted_password = hasher.encryption(password)
+            #for username, stored_encrypted in key_storage.storage_encryption.items():    
+            if encrypted_password in key_storage.storage:
+                    
+                    name = key_storage.storage[encrypted_password]
+                    print("Hello, " + name)
+                    break
+            else:
+                print("Please try again.")
+                continue
+
+
 
     
 
@@ -71,5 +86,6 @@ class Keylogger:
 
 keylogger = Keylogger() # keylogger is the blueprint, Keylogger() is the creation (allows the functions to be ran like the following)
 keylogger.code_verification() # This calls the code_verification function to be ran (just a visual image to show the encryption)
-keylogger.log() # This calls the log function to be ran (deals with user name and password encryption)
+keylogger.inf_password() # This calls the log function to be ran (deals with user name and password encryption)
 # keylogger.hash_log() # This calls the hash_log function to be ran (hashes the passwords stored in the dictionary)
+#keylogger.log()

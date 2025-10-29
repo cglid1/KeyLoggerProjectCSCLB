@@ -3,4 +3,10 @@
 
 2.) If you want to search the dictionary list by password, you have to give each username and password a unique hash. 
 
-3.) Might add a function that asks for username and password like a tradition login for penetration testing (specifically brute force)
+3.) Might add a function that asks for username and password like a tradition login for penetration testing (specifically brute force). 
+
+4.) Built dictionary that saves passwords as hashes, and hashes the password before sending it. 
+
+5.) Need to try having a set key for encryption to compare user input to dictionary (two different keys are used between compile and run time). 
+
+6.) Next I will try to first hash all password entries then encrypt them for max security
