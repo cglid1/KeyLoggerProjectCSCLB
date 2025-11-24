@@ -1,4 +1,4 @@
-# Tried to sort through the dictonary using the password instead
+# Tried to sort through the dictionary using the password instead
 # It isn't possible because users can have the same password
 
 
@@ -14,7 +14,7 @@ class Access:
             
                 password_input = input("Enter password: ")
                 stored_password = key_storage.storage.get(password_input)
-                if password_input == key_storage.storage.get(password_input):
+                if stored_password == key_storage.storage.get(password_input):
                     print("Hello" + key_storage.storage[password_input])
                     break
                 else:

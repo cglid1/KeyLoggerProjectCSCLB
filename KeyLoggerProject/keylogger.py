@@ -9,7 +9,7 @@ class Keylogger:
     
     
     
-    # A basic comparsion between user input and stored data
+    # A basic comparison between user input and stored data
     
     
     ''' def verification(self):
@@ -26,7 +26,7 @@ class Keylogger:
         while True:
             user_name = input("Please enter your username: ")
           #  print(key_storage.dict_hash()) # run time issued hash for testing purposes
-            if user_name in key_storage.storage: # If statement comparing user input to the dictonary
+            if user_name in key_storage.storage: # If statement comparing user input to the dictionary
                 encrypted_password = key_storage.storage[user_name] # Stores the password encrypted string
                 decrypted_password = hasher.decryption(encrypted_password) 
                 print("Password: " + decrypted_password)
@@ -37,7 +37,7 @@ class Keylogger:
                 if __password_export == "y":
                     password = input("Please enter a password: ")
                     encrypted_password = hasher.encryption(password)
-                    key_storage.storage[user_name] = encrypted_password   # Where the user name and password are sent to the dictonary to be stored
+                    key_storage.storage[user_name] = encrypted_password   # Where the user name and password are sent to the dictionary to be stored
                     decrypted_password = hasher.decryption(encrypted_password)
                     continue
                 elif __password_export == "n":    # Promptly ends the loop
@@ -49,7 +49,7 @@ class Keylogger:
         while True:
             user_name = input("Please enter your username: ")
             print(key_storage.dict_hash()) # run time issued hash for testing purposes
-            if user_name in key_storage.storage: # If statement comparing user input to the dictonary
+            if user_name in key_storage.storage: # If statement comparing user input to the dictionary
                 print("Password: " + key_storage.storage[user_name])
                 break
             else:
@@ -58,7 +58,7 @@ class Keylogger:
                 if __password_export == "y":
                     password = input("Please enter a password: ")
                     encrypted_password = hasher.strong_hash(password)
-                    key_storage.storage[user_name] = encrypted_password   # Where the user name and password are sent to the dictonary to be stored
+                    key_storage.storage[user_name] = encrypted_password   # Where the user name and password are sent to the dictionary to be stored
                     continue
                 elif __password_export == "n":    # Promptly ends the loop
                     print("Goodbye!")

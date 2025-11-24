@@ -13,7 +13,7 @@ def strong_hash(password: str, iterations: int = 100_000) -> str: # designed to 
 def verify_hash(password: str, stored_hash: str,) -> bool:
     return strong_hash(password) == stored_hash
 
-key = b"8KNqXGk96VxoJMMiX6sp_5GkKP6gQvwBZKn_dEmJQR4=" # variable key for the encrytpion and decryption functions
+key = b"8KNqXGk96VxoJMMiX6sp_5GkKP6gQvwBZKn_dEmJQR4=" # variable key for the encryption and decryption functions
 fernet_key = Fernet.generate_key()  
 fernet = Fernet(key)
 

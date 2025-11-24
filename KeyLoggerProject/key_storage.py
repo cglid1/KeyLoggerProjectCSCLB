@@ -5,6 +5,12 @@ import hashlib
 import json
 import hasher
 
+basic_storage = {
+    "John": "password",
+    "Mary": "password1",
+    "Katy": "Password"
+}
+
 storage = {
     "John": hasher.encryption("password"),
     "Mary": hasher.encryption("password1"),
@@ -29,7 +35,7 @@ storage_hash = {
 
 
 
-def dict_hash(): # A demo on hashing the dictonary
+def dict_hash(): # A demo on hashing the dictionary
     dict_string = json.dumps(storage, sort_keys=True)
     return hash(dict_string)
 # Issue - a new hash is generated every time
