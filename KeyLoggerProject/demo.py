@@ -27,20 +27,31 @@ class Demo:
                 return guess
         print("No username found.")
         return None
-
-
-
-        # for username, _ in key_storage.basic_storage:
-        #     if username == correct_user:
-        #         crackedUser = username
-        #         print(f"Correct username: {crackedUser}.")
-
-
-
     
+    @staticmethod
+    def brute_force_password(found_user):
+        
+        if found_user is None:
+            print("Cannot brute-force password: Username not found.")
+            return None
+        
+        
+        password_toCrack = key_storage.basic_storage[found_user]
+        start = time.time()
+        
+        
+        for guess in passwordCracker.word_gen():
+            
+            if guess == password_toCrack:
+                end = time.time()
+                clock = str(end - start)
+                print(f"Password found: {guess}")
+                print(f"Password cracking took {clock} seconds.")
+                return guess
+   
 
 
 
 demo = Demo()
-demo.brute_force_username()
-
+found_user = demo.brute_force_username()
+demo.brute_force_password(found_user)
