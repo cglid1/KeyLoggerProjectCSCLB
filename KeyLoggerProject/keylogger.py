@@ -1,35 +1,91 @@
 # run code here
 import key_storage
+import hasher
+
+
 class Keylogger:
 
     
     
     
     
+    # A basic comparison between user input and stored data
     
     
+    ''' def verification(self):
+        print(hasher.verify_hash(key_storage.storage, hasher.stored_hash))
+        return key_storage.storage, hasher.strong_hash '''
     
-    
-    
-    
+    def code_verification(self): # This function verifies that the password strings in the storage dictionary are encrypted
+        print(key_storage.storage)
+
     def log(self): # Function that requests for user name and password
              
         
+        
         while True:
             user_name = input("Please enter your username: ")
-        
-            if user_name in key_storage.storage: # If statement comparing user input to the dictonary
+          #  print(key_storage.dict_hash()) # run time issued hash for testing purposes
+            if user_name in key_storage.storage: # If statement comparing user input to the dictionary
+                encrypted_password = key_storage.storage[user_name] # Stores the password encrypted string
+                decrypted_password = hasher.decryption(encrypted_password) 
+                print("Password: " + decrypted_password)
+                break
+            else:
+                __password_export = input("Password not found.\nWould you like to add to the list? (y/n) ").lower() # Allows user to add and save password in memory
+                                                                                                                # Memory meaning it's doesn't modify the key_storage file
+                if __password_export == "y":
+                    password = input("Please enter a password: ")
+                    encrypted_password = hasher.encryption(password)
+                    key_storage.storage[user_name] = encrypted_password   # Where the user name and password are sent to the dictionary to be stored
+                    decrypted_password = hasher.decryption(encrypted_password)
+                    continue
+                elif __password_export == "n":    # Promptly ends the loop
+                    print("Goodbye!")
+                    break
+    
+    
+    def hash_log(self): # A variation that hashes the passwords before storing it
+        while True:
+            user_name = input("Please enter your username: ")
+            print(key_storage.dict_hash()) # run time issued hash for testing purposes
+            if user_name in key_storage.storage: # If statement comparing user input to the dictionary
                 print("Password: " + key_storage.storage[user_name])
                 break
             else:
-                password_export = input("Password not found.\nWould you like to add to the list? (y/n) ").lower() # Allows user to add and save password in memory
+                __password_export = input("Password not found.\nWould you like to add to the list? (y/n) ").lower() # Allows user to add and save password in memory
                                                                                                                 # Memory meaning it's doesn't modify the key_storage file
-                if password_export == "y":
+                if __password_export == "y":
                     password = input("Please enter a password: ")
-                    key_storage.storage[user_name] = password   # Where the user name and password are sent to the dictonary to be stored
+                    encrypted_password = hasher.strong_hash(password)
+                    key_storage.storage[user_name] = encrypted_password   # Where the user name and password are sent to the dictionary to be stored
                     continue
-                elif password_export == "n":    # Promptly ends the loop
+                elif __password_export == "n":    # Promptly ends the loop
                     print("Goodbye!")
                     break
-keylogger = Keylogger() # keylogger is the blueprint, Keylogger() is the creation
-keylogger.log() # Where the function is called so it can be ran
+
+    def inf_password(self): # designed to make brute force entries quicker
+        while True:
+            password = input("Please enter password: ")
+            encrypted_password = hasher.encryption(password)
+            #for username, stored_encrypted in key_storage.storage_encryption.items():    
+            if encrypted_password in key_storage.storage:
+                    
+                    name = key_storage.storage[encrypted_password]
+                    print("Hello, " + name)
+                    break
+            else:
+                print("Please try again.")
+                continue
+
+
+
+    
+
+
+
+keylogger = Keylogger() # keylogger is the blueprint, Keylogger() is the creation (allows the functions to be ran like the following)
+keylogger.code_verification() # This calls the code_verification function to be ran (just a visual image to show the encryption)
+keylogger.inf_password() # This calls the log function to be ran (deals with user name and password encryption)
+# keylogger.hash_log() # This calls the hash_log function to be ran (hashes the passwords stored in the dictionary)
+#keylogger.log()
